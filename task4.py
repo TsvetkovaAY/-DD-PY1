@@ -3,10 +3,7 @@ import json
 INPUT_FILE = "input.csv"
 
 
-def csv_to_list_dict(INPUT_FILE) -> list[dict]:
-    rows = []
-    list_dict = []
-    delimiter = ','
+def csv_to_list_dict(INPUT_FILE, rows=[], list_dict=[],  delimiter=',') -> list[dict]:
     with open(INPUT_FILE, 'r') as f:
         res = f.readlines()
         headers = res[0].rstrip().split(delimiter)
@@ -19,4 +16,4 @@ def csv_to_list_dict(INPUT_FILE) -> list[dict]:
     return list_dict
 
 
-print(json.dumps(csv_to_list_dict(INPUT_FILE), indent=4))
+print(json.dumps(csv_to_list_dict(INPUT_FILE, rows=[], list_dict=[],  delimiter=','), indent=4))
